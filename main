@@ -1,6 +1,5 @@
 //This is in Java, just run it in a compiler, but it shouldn’t do much yet. 
-public class Main
-{
+public class Main{
 public static void game(){
 board = new int[][]{{0,0,0,0,0,0},{0,0,0,0,0,0},{0,0,0,0,0,0,0},{0,0,0,0,0,0,0},{0,0,0,0,0,0,0},{0,0,0,0,0,0,0},{0,0}};
 rectangle = new int[][]{{1,1,1},{1,1,1}};
@@ -63,6 +62,7 @@ resetBoard();
 return "Failed";
 }
 }
+}
 if(nines==2)return "Success";
 resetBoard();
 return  "Failed";
@@ -70,5 +70,6 @@ return  "Failed";
 
 public static void resetBoard(){
 board=new int[][]{{0,0,0,0,0,0},{0,0,0,0,0,0},{0,0,0,0,0,0,0},{0,0,0,0,0,0,0},{0,0,0,0,0,0,0},{0,0,0,0,0,0,0},{0,0}};
+}
 }
 }
