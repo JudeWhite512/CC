@@ -1,0 +1,74 @@
+//This is in Java, just run it in a compiler, but it shouldn’t do much yet. 
+public class Main
+{
+public static void game(){
+board = new int[][]{{0,0,0,0,0,0},{0,0,0,0,0,0},{0,0,0,0,0,0,0},{0,0,0,0,0,0,0},{0,0,0,0,0,0,0},{0,0,0,0,0,0,0},{0,0}};
+rectangle = new int[][]{{1,1,1},{1,1,1}};
+even_L = new int[][]{{2,2,2},{2,0,0},{2,0,0}};
+uneven_L = new int[][]{{3,3,3,3},{3,0,0,0}};
+c_Shape = new int[][]{{4,4,4},{4,0,4}};
+half_T = new int[][]{{5,5,5,5},{0,5,0,0}};
+even_S = new int[][]{{0,0,6},{6,6,6},{6,0,0}};
+uneven_S = new int[][]{{0,7,7,7},{7,7,0,0}};
+b_Shape = new int[][]{{8,8,8},{0,8,8}};
+
+public static void setTarget(int m, int d){
+if(m>12||m<1||d>31||d<1) system.out.println("Please enter a valid day in integer based month, day format.");
+if(m<7)board[0][m-1]=9;
+else board[1][m-7]=9;
+if(d<8)board[2][d-1]=9;
+else if(d<15)board[3][d-8]=9;
+else if(d<22)board[4][d-15]=9;
+else if(d<29)board[5][d-22]=9;
+else board[6][d-29]=9;
+}
+
+public int[][] flip(int[][] shape){
+tempShape=new int[shape[0].length][shape.length];
+for(int i=0; i<shape[0].length; i++){
+for(int j=0; j<shape.length; j++){
+tempShape[i][j]=shape[j][i];
+}
+}
+return tempShape;
+}
+
+public int[][] rotateRight(int[][] shape){
+tempShape=new int[shape[0].length][shape.length];
+int c=0;
+int r=0;
+for(int i=0; i<shape[0].length; i++){
+for(int j=0; j<shape.length; j++){
+tempShape[i][j]=shape[r][c];
+r++;
+}
+c++;
+r=0;
+}
+return tempShape;
+}
+
+public static void place(int[][] shape, int spot){
+tempBoard=board.clone();
+//finish this
+}
+
+public String check(){
+int nines=0;
+for(int i=0;i<board.length;i++){
+for(int j=0;j<board[i].length;j++){
+if(board[i][j]==9)nines++;
+else if(board[i][j]==0){
+resetBoard();
+return "Failed";
+}
+}
+if(nines==2)return "Success";
+resetBoard();
+return  "Failed";
+}
+
+public static void resetBoard(){
+board=new int[][]{{0,0,0,0,0,0},{0,0,0,0,0,0},{0,0,0,0,0,0,0},{0,0,0,0,0,0,0},{0,0,0,0,0,0,0},{0,0,0,0,0,0,0},{0,0}};
+}
+}
